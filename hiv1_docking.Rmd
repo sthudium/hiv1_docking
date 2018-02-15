@@ -58,3 +58,10 @@ Write the all.pdbqt file into a pdb format so that VMD can read it
 write.pdb(res, "results.pdb")
 ```
 
+RMSD to crystal structure experiment.  The output is the distance in Angstroms
+```{r}
+res <- read.pdb("all.pdbqt", multi=TRUE) 
+ori <- read.pdb("1hsg_ligand.pdbqt")
+rmsd(ori, res)
+```
+
