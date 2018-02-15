@@ -45,3 +45,16 @@ write.pdb(prot, file="1hsg_protein.pdb")
 write.pdb(lig, "1hsg_ligand.pdb")
 ```
 
+Read the ADT files or something like that
+
+```{r}
+library(bio3d) 
+res <- read.pdb("all.pdbqt", multi=TRUE)
+res
+```
+
+Write the all.pdbqt file into a pdb format so that VMD can read it
+```{r}
+write.pdb(res, "results.pdb")
+```
+
