@@ -1,9 +1,47 @@
 ---
-title: "Untitled"
+title: "HIV-1 protease inhibitor docking"
 output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Prep the structure from PDB via bio3d
+
+```{r}
+library(bio3d)
+
+hiv1.file <- get.pdb("1hsg")
+hiv1.file
+```
+
+Read in the HIV1 protease file. Then read the file
+
+```{r}
+hiv <- read.pdb(hiv1.file)
+hiv
+```
+
+Trim the pdb file to just show proteins
+
+```{r}
+prot <- trim.pdb(hiv, "protein")
+prot
+```
+
+Do the same for ligands
+
+```{r}
+lig <- trim.pdb(hiv, "ligand")
+lig
+```
+
+Write the previous two files 
+
+```{r}
+write.pdb(prot, file="1hsg_protein.pdb")  
+
+write.pdb(lig, "1hsg_ligand.pdb")
 ```
 
